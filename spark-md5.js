@@ -382,7 +382,12 @@ define(["typedarray"], function(typedarray) {
     }
 
     function arrayBuffer2Utf8Str(buff) {
-        return String.fromCharCode.apply(null, new Uint8Array(buff));
+        var res = "";
+        var arr = new Uint8Array(buff);
+        for (var i = 0; i < arr.length; i++) {
+            res += String.fromCharCode(arr[i]);
+        }
+        return res;
     }
 
     function concatenateArrayBuffers(first, second, returnUInt8Array) {
