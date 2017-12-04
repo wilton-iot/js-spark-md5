@@ -1,25 +1,7 @@
-(function (factory) {
-    if (typeof exports === 'object') {
-        // Node/CommonJS
-        module.exports = factory();
-    } else if (typeof define === 'function' && define.amd) {
-        // AMD
-        define(factory);
-    } else {
-        // Browser globals (with support for web workers)
-        var glob;
-
-        try {
-            glob = window;
-        } catch (e) {
-            glob = self;
-        }
-
-        glob.SparkMD5 = factory();
-    }
-}(function (undefined) {
-
+define(["typedarray"], function(typedarray) {
     'use strict';
+    var Uint8Array = "undefined" !== typeof(Uint8Array) ? Uint8Array : typedarray.Uint8Array;
+    var ArrayBuffer = "undefined" !== typeof(ArrayBuffer) ? ArrayBuffer : typedarray.ArrayBuffer;
 
     /*
      * Fastest md5 implementation around (JKM md5).
@@ -748,4 +730,4 @@
     };
 
     return SparkMD5;
-}));
+});

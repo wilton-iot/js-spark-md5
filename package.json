@@ -31,5 +31,13 @@
   },
   "devDependencies": {
     "uglify-js": "^3.0.0"
+  },
+  "wilton": {
+    "excludes": [
+      "test",
+      "LICENSE2",
+      "component.json",
+      "spark-md5.min.js"
+    ]
   }
 }

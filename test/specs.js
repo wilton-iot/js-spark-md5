@@ -1,4 +1,11 @@
+define(function(localRequire, exports, module) { var requireOrig = require; require = localRequire;
 /*global test, equal*/
+
+var SparkMD5 = require("spark-md5");
+var Uint8Array = "undefined" !== typeof(Uint8Array) ? Uint8Array : require("typedarray").Uint8Array;
+var ArrayBuffer = "undefined" !== typeof(ArrayBuffer) ? ArrayBuffer : require("typedarray").ArrayBuffer;
+var test = require("tape-compat");
+var equal = require("assert").equal;
 
 var hasher = new SparkMD5(),
     buffHasher = new SparkMD5.ArrayBuffer();
@@ -310,6 +317,7 @@ test('UTF-8', function () {
     equal(buffHasher.end(), '453931ab48a4a5af69f3da3c21064fc9', 'Incremental (array buffer) of "' + str + '"');
 });
 
+/*
 test('Hashing a PNG - ArrayBuffer vs binary string', function () {
     var binString,
         buffer;
@@ -326,3 +334,6 @@ test('Hashing a PNG - ArrayBuffer vs binary string', function () {
 
     equal(buffHasher.end(), hasher.end(), 'md5 sum should be the same for both binary strings and ArrayBuffers');
 });
+*/
+
+require = requireOrig;});
