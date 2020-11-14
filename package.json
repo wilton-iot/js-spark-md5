@@ -37,7 +37,8 @@
       "test",
       "LICENSE2",
       "component.json",
-      "spark-md5.min.js"
+      "spark-md5.min.js",
+      "test.js"
     ]
   }
 }
